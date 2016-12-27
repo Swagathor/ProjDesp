@@ -16,7 +16,7 @@ public class EnemyPatrol : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    {
+    {   
         SphereCollider sphere = GetComponent<SphereCollider>();
 
         if (f_pulse == true)

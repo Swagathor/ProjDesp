@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     {
         instance = this;
     }
-    void Start()
+    void Start()    
     {       
 
 
