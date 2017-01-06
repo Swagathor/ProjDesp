@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class MovingPlatform : MonoBehaviour {
 
- 
-    
+
+
     //public enum CyckleMethod    {  bounce, repeat    }
     
+    
+
+
     public Transform[] m_Waypoints;
+    
     public float moveSpeed = 5f;
     public bool loop;
 
+    private Vector3[] m_TargetWaypoints;
+    
+    
     private Vector3 m_currentPosition;
     private int currentWaypoint = 0;
     private bool forward = true; 
@@ -19,6 +28,7 @@ public class MovingPlatform : MonoBehaviour {
     {
         
         GoToNextPoint(loop);
+        
 	}
 	
 
