@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(Rigidbody))]
 public class MovingPlatform : MonoBehaviour {
 
 
 
     //public enum CyckleMethod    {  bounce, repeat    }
-    
-    
 
 
+    private List<Vector3> Waypoints = null;
     public Transform[] m_Waypoints;
     
     public float moveSpeed = 5f;
@@ -24,6 +24,17 @@ public class MovingPlatform : MonoBehaviour {
     private int currentWaypoint = 0;
     private bool forward = true; 
     //Inituialization
+    void Awake ()
+    {
+        Waypoints = new List<Vector3>();
+        if (Waypoints != null)
+        {
+            for(int i = 0; i < m_Waypoints.Length; i++)
+            {
+                Waypoints.Add(m_Waypoints[i].position);
+            }
+        }
+    }
 	void Start ()
     {
         
@@ -35,6 +46,7 @@ public class MovingPlatform : MonoBehaviour {
 	void Update ()
     {
         transform.position = m_currentPosition;
+        
 
         if (loop == true)
             Loop();
