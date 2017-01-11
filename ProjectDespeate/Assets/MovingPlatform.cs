@@ -9,7 +9,6 @@ public class MovingPlatform : MonoBehaviour {
 
     public List<Transform> Waypoints = new List<Transform>();
     Transform[] m_Waypoints;
-    int i;
     int currentWaypoint;
 
     public float moveSpeed = 5f;
@@ -20,8 +19,6 @@ public class MovingPlatform : MonoBehaviour {
     private bool forward = true;
 
     Rigidbody rigid;
-
-    //Inituialization
     void Awake ()
     {
         m_Waypoints = Waypoints.ToArray();
@@ -30,7 +27,7 @@ public class MovingPlatform : MonoBehaviour {
     }
     void Start()
     {
-        transform.DetachChildren();
+        transform.DetachChildren(); //MFKEYTHING
         GoToNextPoint(loop);
     }
 	void FixedUpdate ()
@@ -38,7 +35,7 @@ public class MovingPlatform : MonoBehaviour {
         m_movement  = Vector3.MoveTowards(rigid.position, m_Waypoints[currentWaypoint].position, moveSpeed * Time.deltaTime);
         rigid.MovePosition(m_movement);
         float dist = Vector3.Distance(transform.position, m_Waypoints[currentWaypoint].position);
-        if (dist < 0.5f)
+        if (dist < 0.1f)
             GoToNextPoint(loop);
 
 	}
@@ -58,8 +55,6 @@ public class MovingPlatform : MonoBehaviour {
         //PingPong
         else
         {
-            if (m_Waypoints.Length > 2 )
-            {
                 if (forward == true)
                 {
                     currentWaypoint = (currentWaypoint + 1);
@@ -78,8 +73,6 @@ public class MovingPlatform : MonoBehaviour {
                         currentWaypoint = 1;
                     }
                 }
-            }
-            currentWaypoint = (currentWaypoint + 1) % m_Waypoints.Length;
         }
     }
 }
