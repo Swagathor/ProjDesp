@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour{
 
     public Transform[] points;
     private int destPoint = 0;
-    private NavMeshAgent agent;
+    private UnityEngine.AI.NavMeshAgent agent;
 
     private bool agro;
     private SphereCollider sphere;
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour{
     // Use this for initialization
     void Start ()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         agent.autoBraking = false;
 

@@ -9,9 +9,11 @@ public class gizmoRender : MonoBehaviour {
     public bool WireMesh;
 
     void Update () //Get mesh and scale
-    {
-        ParentMesh = GetComponentInParent<MeshFilter>().sharedMesh;
-        ParentScale = GetComponentInParent<Transform>().lossyScale;
+    {   
+        
+            ParentMesh = GetComponentInParent<MeshFilter>().sharedMesh;
+            ParentScale = GetComponentInParent<Transform>().lossyScale;
+        
 
     }
     void OnDrawGizmos () //Draws Gizmo 
@@ -24,5 +26,5 @@ public class gizmoRender : MonoBehaviour {
             else
                 Gizmos.DrawMesh(ParentMesh, 0, transform.position, transform.rotation, ParentScale);
         } 
-    }  
+    }
 }
