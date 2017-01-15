@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour{
     // Use this for initialization
     void Start ()
     {
+        transform.DetachChildren();
+
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         agent.autoBraking = false;

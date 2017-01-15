@@ -5,23 +5,24 @@ public class NewPositionScript : MonoBehaviour {
 
     private Transform TeleportArrive;
     //private BoxCollider DoorCollider;
-
+    public CanvasGroup Canvas;
     public GameObject targetObjective;
     private Transform targetTeleport;
+
 
     [Range(0.1f,2f)]
     public float timeLeft;
     private float currentTime;
-
     private bool startTime;
 
+    private 
 
     // Use this for initialization
     void Start ()
     {
         //DoorCollider = gameObject.GetComponent<BoxCollider>();
         targetTeleport = targetObjective.transform;
-
+        Canvas = GetComponent<CanvasGroup>();
         if (targetObjective == null)
         {
             Debug.Log("Target objective is Null");
@@ -45,6 +46,7 @@ public class NewPositionScript : MonoBehaviour {
             CameraMovement.instance.SetActive(false);
             startTime = true; //starts the counter
 
+            
         }
     }
     //Start Camera after Delay
@@ -53,7 +55,7 @@ public class NewPositionScript : MonoBehaviour {
         if(start == true)
         {
             currentTime -= Time.deltaTime;
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
             if (currentTime <= 0)
             {
                 CameraMovement.instance.SetActive(true);

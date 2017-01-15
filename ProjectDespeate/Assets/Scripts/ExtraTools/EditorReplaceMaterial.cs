@@ -14,14 +14,14 @@ public class EditorReplaceMaterial : EditorWindow {
     {
         EditorWindow.GetWindow(typeof(EditorReplaceMaterial));
     }
-
+    
     void OnGUI()
     {
         //Pick new material
         GUILayout.Label("Target Material", EditorStyles.boldLabel);
         m_TargetMaterial = (Material)EditorGUILayout.ObjectField(m_TargetMaterial, typeof(Material), true);
         hasChildern = EditorGUILayout.Toggle("Has Children", hasChildern);
-
+        
         
         if (GUILayout.Button ("Replace Material")   )
         {
@@ -33,6 +33,7 @@ public class EditorReplaceMaterial : EditorWindow {
         }
         
     }
+    /*
     [MenuItem("Extra Tools/Replace _g")]
     public void KeyReplace()
     {
@@ -40,7 +41,7 @@ public class EditorReplaceMaterial : EditorWindow {
         ReplaceMat(currentObj);
     }
 
-
+    */
 
 
 
