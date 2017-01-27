@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
     CharacterController controller;
 
     public static PlayerController instance;
+
+    public int PlayerLife = 100; 
     // Use this for initialization
     void Awake()
     {
