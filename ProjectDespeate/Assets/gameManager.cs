@@ -8,8 +8,12 @@ public class gameManager : MonoBehaviour {
     public float m_score;
 
     public static gameManager instance;
-    List<ItemList> Inventory = new List<ItemList>(); 
-    // Use this for initialization
+    List<ItemList> Inventory = new List<ItemList>();
+     
+
+    
+
+
     void Awake ()
     {
         instance = this; 
@@ -24,9 +28,9 @@ public class gameManager : MonoBehaviour {
     {
 		
 	}
-    public void AddtoList(string itemName, float itemWorth)
+    public void AddtoList(string itemName, float itemWorth, string ItemDescription)
     {
         m_score = itemWorth + m_score;
-        Inventory.Add(new ItemList(itemName, itemWorth));
+        Inventory.Add(new ItemList(itemName, itemWorth, ItemDescription));
     }
 }
